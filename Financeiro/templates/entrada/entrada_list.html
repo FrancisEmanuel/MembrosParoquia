@@ -1,0 +1,13 @@
+Lista de Membros
+
+<br>
+
+
+{% for membro in object_list %}
+
+    <a href="{% url 'membro_detail_cbv' membro.pk %}">{{ membro }}</a><br>
+
+{% endfor %}
+
+
+<a href="{% url 'membro_create_cbv' %}">Novo</a>

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Membros{% endblock %}
+
+{% block main %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lista de Membros</h4>
+                        <h6 class="card-subtitle">Dizimistas</h6>
+                        <a type="button" class="btn btn-info" href="{% url 'membro_create_cbv' %}" class="fa fa-plus-circle">Novo</a>
+
+
+                            <div id="example23_wrapper" class="dataTables_wrapper">
+                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Telefone</th>
+                                            <th>Endereço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for membro in object_list %}
+                                        <tr>
+                                            <td>{{membro.codigo}}</td>
+                                            <td>{{membro.nome}}</td>
+                                            <td>{{membro.telefone}} / {{membro.celular}}</td>
+                                            <td>{{membro.endereco}} {{membro.numero}} {{membro.bairro}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th>Telefone</th>
+                                            <th>Endereço</th>
+                                        </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block footerjs %}
+        {% include 'basebuttons.html' %}
+    {% endblock %}
+
+
+
+{% endblock %}
+
+
+
+
+
